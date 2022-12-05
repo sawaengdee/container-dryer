@@ -13,11 +13,25 @@
 </head>
 <body>
     <h3>A = <span id="a">a</span></h3>
+    <hr>
+    <h3>B = <span id="b">b</span></h3>
+    <hr>
+    <h3>Massge = <span id="c">c</span></h3>
     <script>
-        var test = document.getElementById("a");
+        var test1 = document.getElementById("a");
         var db_refState = firebase.database().ref().child("test");
         db_refState.on("value", sanp => {
-            test.innerText = sanp.val()["a"]*1;
+            test1.innerText = sanp.val()["a"]*1;
+        });
+        var test2 = document.getElementById("b");
+        var db_refState = firebase.database().ref().child("test");
+        db_refState.on("value", sanp => {
+            test2.innerText = sanp.val()["b"]*1;
+        });
+        var test3 = document.getElementById("c");
+        var db_refState = firebase.database().ref().child("message");
+        db_refState.on("value", sanp => {
+            test3.innerText = sanp.val();
         });
     </script>
 </body>
